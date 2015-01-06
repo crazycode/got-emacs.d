@@ -1,0 +1,1 @@
+("~/.emacs.d/" "~/works/cwds/" "~/fig/memcachedcluster/")

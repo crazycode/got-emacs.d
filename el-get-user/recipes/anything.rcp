@@ -1,0 +1,7 @@
+(:name anything
+       :website "http://www.emacswiki.org/emacs/Anything"
+       :description "Open anything / QuickSilver-like candidate-selection framework"
+       :type github
+       :pkgname "orikuma/anything-config"
+       :load-path ("." "extensions" "contrib")
+       :features anything)

@@ -1,0 +1,8 @@
+*.elc
+el-get
+elpa
+.smex-items
+auto-save-list
+ac-comphist.dat
+.emacs.desktop
+.emacs.desktop.*

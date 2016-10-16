@@ -1,9 +1,9 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
-(setq url-proxy-services
-      '(("no_proxy" . "^\\(localhost\\|10.*\\)")
-        ("http" . "127.0.0.1:1315")
-        ("https" . "127.0.0.1:1315")))
+;;(setq url-proxy-services
+;;      '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+;;        ("http" . "127.0.0.1:1315")
+;;        ("https" . "127.0.0.1:1315")))
 
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
@@ -50,9 +50,9 @@
 (setq dim-packages
       (append
        ;; list of packages we use straight from official recipes
-       '(multiple-cursors smart-forward fuzzy-format
+       '(multiple-cursors smart-forward fuzzy-format f
                           git-emacs magit magit-view-file recentf-ext
-                          smex auto-complete auto-complete-rst
+                          smex auto-complete auto-complete-rst s
                           ace-jump-mode ace-jump-buffer ace-window
                           ruby-mode rvm rinari yaml-mode rspec-mode
                           haml-mode web-mode json-mode zencoding-mode

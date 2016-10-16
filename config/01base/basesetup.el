@@ -162,3 +162,6 @@ scroll-conservatively 10000)
 (setq vc-follow-symlinks nil)
 
 (put 'downcase-region 'disabled nil)
+
+;; 保存时删除尾部空格
+(add-hook 'before-save-hook 'delete-trailing-whitespace)

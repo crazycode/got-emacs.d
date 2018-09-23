@@ -1,3 +1,10 @@
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
 ;;(setq url-proxy-services
@@ -43,7 +50,10 @@
 
         (:name projectile
                :after (progn
-                        (projectile-global-mode)))
+                        (projectile-global-mode)
+                        (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+                        (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+                        ))
         ))
 
 ;; my packages
@@ -55,9 +65,9 @@
                           smex auto-complete auto-complete-rst s
                           ace-jump-mode ace-jump-buffer ace-window
                           ruby-mode rvm rinari yaml-mode rspec-mode
-                          haml-mode web-mode json-mode zencoding-mode
+                          haml-mode web-mode json-mode emmet-mode js2-mode tide flycheck rjsx-mode
                           applescript-mode lua-mode
-                          pandoc-mode rst-mode markdown-mode muse deft 
+                          pandoc-mode rst-mode markdown-mode muse deft
                           markdown-mode color-theme-railscasts protobuf-mode)
 
        (mapcar 'el-get-as-symbol (mapcar 'el-get-source-name el-get-sources))))
@@ -65,24 +75,24 @@
 (el-get 'sync dim-packages)
 
 
-;; 手工加载的库
-;; helper function
-(defun my-add-subdirs-to-load-path (dir)
-  (let ((default-directory (concat dir "/")))
-    (setq load-path (cons dir load-path))
-    (normal-top-level-add-subdirs-to-load-path)))
-
-(my-add-subdirs-to-load-path "~/.emacs.d/vendor")
-
 ;; 机器相关的设置放在my-custom.el
 (load "~/.emacs.d/my-custom.el")
 
+
+(mapc 'load (directory-files "~/.emacs.d/custom/01base" t "\.el$"))
+
+
+;; 前端开发配置
+(load "~/.emacs.d/my-front-custom.el")
+
 ;; 加载扩展库的配置文件
-(mapc 'load (directory-files "~/.emacs.d/config/01base" t "\.el$"))
+
+;; -- (mapc 'load (directory-files "~/.emacs.d/config/01base" t "\.el$"))
+
 ;; (mapc 'load (directory-files "~/.emacs.d/config/02advedit" t "\.el$"))
-(mapc 'load (directory-files "~/.emacs.d/config/20languages" t "\.el$"))
-(mapc 'load (directory-files "~/.emacs.d/config/50webdev" t "\.el$"))
+
+;; -- (mapc 'load (directory-files "~/.emacs.d/config/20languages" t "\.el$"))
+;; -- (mapc 'load (directory-files "~/.emacs.d/config/50webdev" t "\.el$"))
+
 ;; (mapc 'load (directory-files "~/.emacs.d/config/70emacsonrails" t "\.el$"))
 ;; (mapc 'load (directory-files "~/.emacs.d/config/99post" t "\.el$"))
-
-

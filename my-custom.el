@@ -12,3 +12,7 @@
 ;; see my-font.el
 (setq my-default-font-size ":pixelsize=16")
 (setq my-default-chinese-font-size 14)
+
+;; 解决不能运行node的问题
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setq exec-path (append exec-path '("/usr/local/bin")))

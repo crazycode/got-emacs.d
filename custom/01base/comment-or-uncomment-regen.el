@@ -1,0 +1,11 @@
+(defun my-comment-or-uncomment-region (beg end &optional arg)
+  (interactive (if (use-region-p)
+                   (list (region-beginning) (region-end) nil)
+                 (list (line-beginning-position)
+                       (line-beginning-position 2))))
+  (comment-or-uncomment-region beg end arg)
+)
+(global-set-key [remap comment-or-uncomment-region] 'my-comment-or-uncomment-region)
+
+(global-set-key [?\C-c ?\C-/] 'comment-or-uncomment-region)
+(global-set-key [?\s-/] 'comment-or-uncomment-region)
